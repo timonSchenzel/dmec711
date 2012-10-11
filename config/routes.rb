@@ -1,5 +1,5 @@
 Dmec711::Application.routes.draw do
-  root to: 'home#index'
+  root :to => 'home#home'
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :therapists

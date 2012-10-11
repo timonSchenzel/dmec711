@@ -19,7 +19,7 @@
         <ul class="nav nav-tabs nav-stacked">
           <% @therapist.clients.each do |client| %>
               <li>
-                <a href="#">
+                <a href="<%= client_path(client) %>">
                   <%= client.name %>
                 </a>
               </li>
@@ -31,7 +31,7 @@
         <ul class="nav nav-tabs nav-stacked">
           <% @clients.each do |client| %>
               <li>
-                <a href="#">
+                <a href="<%= client_path(client) %>">
                   <%= client.name %>
                 </a>
               </li>
