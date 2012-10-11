@@ -13,6 +13,29 @@
   <% flash.each do |key, value| %>
       <div  class="alert alert-<%= key %>"><%= value %><a class="close" data-dismiss="alert" href="#">&times;</a></div>
   <% end %>
+  <div class="tabbable"> <!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab1" data-toggle="tab">Agenda</a></li>
+      <li><a href="#tab2" data-toggle="tab">Cliënten</a></li>
+      <li><a href="#tab3" data-toggle="tab">Therapieën</a></li>
+      <li><a href="#tab4" data-toggle="tab">Collega's</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab1">
+        <p>I'm in Section 1.</p>
+      </div>
+      <div class="tab-pane" id="tab2">
+        <p>Howdy, I'm in Section 2.</p>
+      </div>
+      <div class="tab-pane" id="tab3">
+        <p>Howdy, I'm in Section 3.</p>
+      </div>
+      <div class="tab-pane" id="tab4">
+        <p>Howdy, I'm in Section 4.</p>
+      </div>
+    </div>
+  </div>
+
   <%= yield %>
   <%= render 'layouts/footer' %>
   <%= debug(params) if Rails.env.development? %>
