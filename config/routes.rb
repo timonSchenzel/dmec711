@@ -1,12 +1,11 @@
 Dmec711::Application.routes.draw do
   root to: 'home#index'
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :session, only: [:new, :create, :destroy]
   resources :therapists
 
-  match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
-  match '/agenda',  to: 'agenda#index'
+  match '/signin',  to: 'session#new'
+  match '/signout', to: 'session#destroy', via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
