@@ -4,6 +4,7 @@ Dmec711::Application.routes.draw do
   resources :session, only: [:new, :create, :destroy]
   resources :therapists
 
+  match '/clients',  to: 'client#index'
   match '/signin',  to: 'session#new'
   match '/signout', to: 'session#destroy', via: :delete
 

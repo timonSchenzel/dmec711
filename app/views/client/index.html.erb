@@ -1,0 +1,11 @@
+<% provide(:title, "Cliënten") %>
+<h1>Cliënten</h1>
+
+<table>
+    <% @clients.each do |c|  %>
+       <tr>
+         <td><%= c.name %></td>
+         <td><%= c.photo %></td>
+       </tr>
+    <% end %>
+</table>
