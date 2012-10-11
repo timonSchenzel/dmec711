@@ -2,7 +2,7 @@ class DossierController < ApplicationController
 
   def show
     @client = Client.find(params[:id])
-    @dossier = @client.dossier(params[:dossier])
+    @dossier = @client.dossier.find(params[:dossier])
   end
 
   def new
