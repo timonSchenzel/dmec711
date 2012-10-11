@@ -1,5 +1,5 @@
 Dmec711::Application.routes.draw do
-  root :to => 'home#home'
+  root to: 'home#home'
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :therapists
@@ -13,6 +13,7 @@ Dmec711::Application.routes.draw do
   match '/client/:id',  to: 'client#show'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+  match '/client/ajax_show/(:id)', to: 'client#ajax_show', via: :get
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

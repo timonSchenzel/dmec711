@@ -9,17 +9,17 @@
   </ul>
 
   <div class="page-header">
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs" id="clients_tabs">
       <li class="active"><a data-toggle="tab" href="#my_clients">Mijn cliënten</a></li>
       <li><a data-toggle="tab" href="#all_clients">Alle cliënten</a></li>
     </ul>
 
-    <div class="tab-content">
+    <div class="tab-content" id="clients_tabs_content">
       <div class="tab-pane active" id="my_clients">
         <ul class="nav nav-tabs nav-stacked">
           <% @therapist.clients.each do |client| %>
               <li>
-                <a href="<%= client_path(client) %>">
+                <a href="#" onclick="create_tab(<%= client.id %>, '<%= client.name %>');">
                   <%= client.name %>
                 </a>
               </li>
@@ -31,7 +31,7 @@
         <ul class="nav nav-tabs nav-stacked">
           <% @clients.each do |client| %>
               <li>
-                <a href="<%= client_path(client) %>">
+                <a href="#" onclick="create_tab(<%= client.id %>, '<%= client.name %>');">
                   <%= client.name %>
                 </a>
               </li>
