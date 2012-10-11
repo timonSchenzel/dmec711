@@ -7,8 +7,38 @@
     <li><a href="therapy">Therapieën</a></li>
     <li><a href="colleague">Collega's</a></li>
   </ul>
+
   <div class="page-header">
-    <h2>Cliënts</h2>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#my_clients">Mijn cliënten</a></li>
+      <li><a data-toggle="tab" href="#all_clients">Alle cliënten</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="my_clients">
+        <ul class="nav nav-tabs nav-stacked">
+          <% @therapist.clients.each do |client| %>
+              <li>
+                <a href="#">
+                  <%= client.name %>
+                </a>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="tab-pane" id="all_clients">
+        <ul class="nav nav-tabs nav-stacked">
+          <% @clients.each do |client| %>
+              <li>
+                <a href="#">
+                  <%= client.name %>
+                </a>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+
+    </div>
   </div>
 </div>
-<h1>Cliënten</h1>
