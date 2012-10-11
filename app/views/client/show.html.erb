@@ -1,0 +1,33 @@
+<% provide(:title, @client.name) %>
+<h1><%= @client.name %></h1>
+<%= @client.photo %>
+
+<table>
+  <tr>
+    <td style='width: 33%;vertical-align: top;'>
+         <h3>Dossier</h3>
+      <table>
+        <% @dossiers.DossierItem.each do |d| %>
+            <tr>
+              <td><%= d.name %></td>
+              <td><%= d.description %></td>
+            </tr>
+        <% end %>
+      </table>
+    </td>
+    <td style='width: 33%;vertical-align: top;'>
+         <h3>Notities</h3>
+      <table>
+      <% @notes.each do |n| %>
+        <tr>
+            <td><%= n.name %></td>
+            <td><%= n.description %></td>
+        </tr>
+      <% end %>
+        </table>
+    </td>
+    <td style='width: 33%;vertical-align: top;'>
+        <h3>Therapiën</h3>
+    </td>
+  </tr>
+</table>

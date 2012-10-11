@@ -1,5 +1,5 @@
 class NoteController < ApplicationController
-
+  attr_accessible :name, :description, :client_id
   def show
     @client = Client.find(params[:client])
     @note = Notes.find(params[:note])

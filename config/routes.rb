@@ -9,6 +9,7 @@ Dmec711::Application.routes.draw do
   resources :colleague
 
   match '/clients',  to: 'client#index'
+  match '/client/:id',  to: 'client#show'
   match '/signin',  to: 'session#new'
   match '/signout', to: 'session#destroy', via: :delete
 

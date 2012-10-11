@@ -7,6 +7,5 @@ class ClientController < ApplicationController
     @client = Client.find(params[:id])
     @dossiers = @client.dossier
     @notes = @client.notes
-    @therapies = @client.therapies
   end
 end
