@@ -1,33 +1,81 @@
-<% provide(:title, @client.name) %>
-<h1><%= @client.name %></h1>
-<%= @client.photo %>
+<% provide(:title, 'Cliënten') %>
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li><a href="home">Home</a></li>
+    <li><a href="agenda">Agenda</a></li>
+    <li class="active"><a href="client">Cliënten</a></li>
+    <li><a href="therapy">Therapieën</a></li>
+    <li><a href="colleague">Collega's</a></li>
+  </ul>
 
-<table>
-  <tr>
-    <td style='width: 33%;vertical-align: top;'>
-         <h3>Dossier</h3>
-      <table>
-        <% @dossiers.DossierItem.each do |d| %>
-            <tr>
-              <td><%= d.name %></td>
-              <td><%= d.description %></td>
-            </tr>
-        <% end %>
-      </table>
-    </td>
-    <td style='width: 33%;vertical-align: top;'>
-         <h3>Notities</h3>
-      <table>
-      <% @notes.each do |n| %>
-        <tr>
-            <td><%= n.name %></td>
-            <td><%= n.description %></td>
-        </tr>
-      <% end %>
-        </table>
-    </td>
-    <td style='width: 33%;vertical-align: top;'>
-        <h3>Therapiën</h3>
-    </td>
-  </tr>
-</table>
+  <div class="page-header">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#my_clients">Mijn cliënten</a></li>
+      <li><a data-toggle="tab" href="#all_clients">Alle cliënten</a></li>
+      <li><a data-toggle="tab" href="#current_client"><%= @client.name %></a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="my_clients">
+        <ul class="nav nav-tabs nav-stacked">
+          <% @therapist.clients.each do |client| %>
+              <li>
+                <a href="#">
+                  <%= client.name %>
+                </a>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="tab-pane" id="all_clients">
+        <ul class="nav nav-tabs nav-stacked">
+          <% @clients.each do |client| %>
+              <li>
+                <a href="#">
+                  <%= client.name %>
+                </a>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="tab-pane" id="current_client">
+        <div class="span2 well well-large pull-left">
+          <ul class="thumbnails">
+            <li>
+              <a href="#" class="thumbnail">
+                <%= image_tag("p5.jpg") %>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="span9 pull-right">
+          <div class="well well-small">
+            <h1><%= @client.name %></h1>
+            <h2>23 Jaar</h2>
+            </table>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <h1 class="pull-left"><ul>Historie</ul></h1>
+        <div class="clearfix"></div>
+        <div class="well well-large span10">
+          <table class="table table-striped table-hover">
+            <% @dossiers.DossierItem.each do |d| %>
+                <tr>
+                  <td><%= d.name %></td>
+                  <td><%= d.description %></td>
+                </tr>
+            <% end %>
+          </table>
+        </div>
+
+      </div>
+      </div>
+
+    </div>
+  </div>

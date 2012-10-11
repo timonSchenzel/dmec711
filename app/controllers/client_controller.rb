@@ -8,5 +8,7 @@ class ClientController < ApplicationController
     @client = Client.find(params[:id])
     @dossiers = @client.dossier
     @notes = @client.notes
+    @clients = Client.all()
+    @therapist = Therapist.find(1)
   end
 end
