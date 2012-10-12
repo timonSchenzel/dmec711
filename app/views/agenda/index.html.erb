@@ -9,12 +9,12 @@
 
   <div class="page-header well">
     <div class="tabbable"> <!-- Only required for left/right tabs -->
-      <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs" id="clients_tabs">
         <li><a href="#week40" data-toggle="tab">Week 40</a></li>
         <li><a href="#week41" data-toggle="tab">Week 41</a></li>
         <li class="active"><a href="#week42" data-toggle="tab">Week 42</a></li>
       </ul>
-      <div class="tab-content">
+      <div class="tab-content" id="clients_tabs_content">
         <div class="tab-pane" id="week40">
           <p>Week 40</p>
         </div>
@@ -28,8 +28,8 @@
 
     <ul class="thumbnails">
       <li class="">
-        <a href="<%= %>" class="thumbnail">
-          <img src="http://placehold.it/960x400" alt="">
+        <a href="<%= client_path(1) %>" class="thumbnail">
+          <%= image_tag("Agenda.png") %>
         </a>
       </li>
     </ul>
