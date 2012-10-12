@@ -18,5 +18,13 @@ class ClientController < ApplicationController
     @notes = @client.notes
     @clients = Client.all()
     @therapist = Therapist.find(current_user.id)
+
+    view_data = render_to_string(:partial => 'client/ajax_show', :content_type => 'text/html')
+    respond_to do |format|
+      format.json { render :json => {
+          :client => @client, :html => view_data
+        }
+      }
+    end
   end
 end

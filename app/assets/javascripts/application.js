@@ -19,18 +19,24 @@
 //= require bootstrap-popover
 //= require_tree .
 
-function create_tab(client_id, client_name) {
+function create_tab(client_id) {
+    if($('div#client-' + client_id).length != 0) {
+        $('a[href="#client-' + client_id + '"]').tab('show');
+        return;
+    }
+
     $.ajax({
         url: site_url('client/ajax_show/' + client_id),
         data: {  },
         type: 'get',
+        dataType: 'json',
         success: function(data) {
             $('#clients_tabs_content')
                 .append(
                 $('<div></div>')
                     .addClass('tab-pane')
                     .attr('id', 'client-' + client_id)
-                    .html(data)
+                    .html(data.html)
             );
 
             $('#clients_tabs').append(
@@ -41,7 +47,7 @@ function create_tab(client_id, client_name) {
                 $('<a></a>')
                     .attr('data-toggle', 'tab')
                     .attr('href', '#client-' + client_id)
-                    .html(client_name + '<button style="margin-left: 5px;" type="button" class="close" data-dismiss="alert" onclick="select_last_tab();">&times;</button>')
+                    .html(data.client.name + '<button style="margin-left: 5px;" type="button" class="close" data-dismiss="alert" onclick="select_last_tab(this); return false;">&times;</button>')
             );
 
             $('#clients_tabs li:last a').tab('show');
@@ -49,7 +55,9 @@ function create_tab(client_id, client_name) {
     });
 }
 
-function select_last_tab() {
+function select_last_tab(me) {
+    $('div' + $(me).parent('a').attr('href')).remove();
+    $(me).parent('a').parent('li').remove();
     $('#clients_tabs li:last a').tab('show');
 }
 

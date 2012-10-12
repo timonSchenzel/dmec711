@@ -1,5 +1,19 @@
 @import "bootstrap";
 
+div.tab-content {
+  padding-bottom: 9px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 18px;
+  border-bottom: 1px solid #DDD;
+  border-left: 1px solid #DDD;
+  border-right: 1px solid #DDD;
+  background-color: white;
+  margin-top: 0;
+}
+
+ul.nav-tabs { margin-bottom: 0; }
+
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
