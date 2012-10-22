@@ -15,7 +15,7 @@
 <div class="clearfix"></div>
 <div class="well well-large">
   <table class="table table-striped table-hover">
-    <% @dossiers.DossierItem.each do |d| %>
+    <% @dossiers.dossier_items.each do |d| %>
         <tr>
           <td><%= d.name %></td>
           <td><%= d.description %></td>
