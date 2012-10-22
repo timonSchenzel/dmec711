@@ -21,6 +21,7 @@
           <% @therapist.clients.each do |client| %>
               <li>
                 <a href="javascript:;" onclick="create_tab(<%= client.id %>);">
+
                   <%= client.name %>
                 </a>
               </li>
@@ -53,6 +54,7 @@
         </div>
 
         <div class="clearfix"></div>
+
 
         <h1 class="pull-left"><ul>Historie</ul></h1>
         <div class="clearfix"></div>
